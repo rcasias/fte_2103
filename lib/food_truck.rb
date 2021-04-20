@@ -22,7 +22,16 @@ class FoodTruck
 
   def check_stock(item)
     @inventory[item]
-    # require'pry';binding.pry
+  end
+
+  def potential_revenue
+    total = 0
+    @inventory.each do |key, value|
+      amount = key.price.to_s.tr('$', '').to_f
+      total += (amount * value)
+      # require'pry';binding.pry
+    end
+    total
   end
 
 end
